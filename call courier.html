@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Courier and Postex</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header {
+            background-color: #1c1c1c;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #f0a500;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        nav a {
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #444;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #222;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            
+            object-fit: cover;
+        }
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .featured-products {
+            padding: 40px;
+            background-color: #1c1c1c;
+        }
+        .featured-products h2 {
+            text-align: center;
+            color: #f0a500;
+        }
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            color: #f0a500;
+        }
+        .product p {
+            color: #ccc;
+        }
+        .footer {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid #444;
+        }
+        .footer p {
+            margin: 0;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Postex</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="courier page.htm">Courier</a> <!--courier page.html-->
+        <a href="#">About</a>
+        <a href="#">Contact</a> 
+    </nav>
+</header>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search for products...">
+</div>
+
+<div class="hero">
+    <div class="slides">
+        <div class="slide">
+            <img src="images/postex.jpg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="images/ccs.jpg 1.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="images/ccs maps.jpg" alt="Slide 3">
+        </div>
+    </div>
+    <div class="controls">
+        <button id="prev">❮</button>
+        <button id="next">❯</button>
+    </div>
+</div>
+
+<section class="featured-products">
+    <h2>We Offers You</h2>
+    <div class="product-list">
+        <div class="product">
+            <img src="images/CallCourier-ProPakistani.jpg" alt="Product 1">
+            <h3>Fast Services</h3>
+            <p>Our Call Courier Team offers reliable, fast service with seamless teamwork, ensuring your packages are delivered swiftly and securely. Count on us for dependable and efficient delivery solutions.</p>
+        </div>
+        <div class="product">
+            <img src="images/call courier services.jpg" alt="Product 2">
+            <h3>Reliability</h3>
+            <p>Our Call Courier Team combines reliability and teamwork to deliver your packages with precision and care. Trust us for dependable services that ensure your items arrive safely and on time.</p>
+        </div>
+        <div class="product">
+            <img src="images/postecx.jpg" alt="Product 3">
+            <h3>Team Work</h3>
+            <p>Count on our Call Courier Team for seamless teamwork and exceptional delivery services, ensuring your packages reach their destination with care and precision. Trust us to handle your logistics with expertise and dedication.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Your Shop. All rights reserved.</p>
+</footer>
+
+
+<script>
+    function goHome() {
+        window.location.href = "call courier.html"; // Navigate to the main page
+    }
+console.log(document)
+    let currentSlide = 0;
+    const slides = document.querySelector('.slides');
+    const slideCount = slides.children.length;
+
+    document.getElementById('next').addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slideCount;
+        updateSlidePosition();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        updateSlidePosition();
+    });
+
+    function updateSlidePosition() {
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+</script>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelector('.slides');
+    const slideCount = slides.children.length;
+
+    document.getElementById('next').addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slideCount;
+        updateSlidePosition();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        updateSlidePosition();
+    });
+
+    function updateSlidePosition() {
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+</script>
+
+</body>
+</html>
